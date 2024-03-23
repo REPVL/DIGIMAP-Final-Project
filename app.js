@@ -1,6 +1,16 @@
-var http = require('http');
+const express = require('express')
+const handlebars = require('hbs')
+const routes = require('./routes/routes.js')
 
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('Hello World!');
-}).listen(8080); 
+const app = express()
+app.set('view engine', 'hbs')
+handlebars.registerPartials(__dirname + './views/partials')
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
+app.use('/', routes)
+
+app.listen(8080, () => {
+  console.log('Server is running at localhost:8080')
+})
