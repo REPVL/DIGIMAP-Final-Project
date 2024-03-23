@@ -11,12 +11,30 @@
 </head>
 
 <body>
-  <input type="file" id="imageInput" name="image-input" accept="image/png, image/jpeg">
-  <img src="" id="imagePreview">
-  <button id="ccButton">Download Color Corrected Image</button>
-  <button id="edButton">Download Edge Detected Image</button>
-</body>
+  <header>
+    <h1>DIGIMAP Final Project</h1>
+  </header>
 
-<script src="scripts.js"></script>
+  <section class="upload-section">
+    <h2>Original Image</h2>
+    <input type="file" id="imageInput" name="image-input" accept="image/png, image/jpeg" onchange="previewImage(event)">
+    <img src="" id="imagePreview">
+  </section>
+
+  <section class="preview-section">
+    <h2>Color Corrected Image</h2>
+    <img src="" id="ccPreview">
+    <button id="ccButton">Download Color Corrected Image</button>
+  </section>
+
+  <section class="preview-section">
+    <h2>Edge Detected Image</h2>
+    <img src="" id="edPreview">
+    <button id="edButton">Download Edge Detected Image</button>
+  </section>
+
+  <script src="scripts.js"></script>
+
+</body>
 
 </html>

@@ -3,14 +3,55 @@
 * {
     margin: 0;
     padding: 0;
-
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
+    box-sizing: border-box;
 }
 
-input::file-selector-button {
+body {
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
+}
+
+header {
+    background-color: #333; /* Dark background color for the header */
+    color: #fff; /* Light text color for the header */
+    text-align: center;
+    padding: 20px 0;
+}
+
+.upload-section,
+.preview-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+button {
+    display: block;
+    margin: 0 auto 20px; /* Center the buttons horizontally and add some space at the bottom */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333; /* Dark background color for the buttons */
+    color: #fff; /* Light text color for the buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555; /* Darker background color on hover */
+}
+
+button:focus {
+    outline: none; /* Remove the default focus outline */
+}
+
+/* Styles for the image previews */
+img {
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ccc; /* Add a border to the image previews */
+    border-radius: 5px; /* Add some border radius for a rounded appearance */
 }
