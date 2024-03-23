@@ -4,7 +4,7 @@ const controller = {
     },
 
     showIndex: (req, res) => {
-        res.render('index')
+        res.send('index')
     }
 }
 
