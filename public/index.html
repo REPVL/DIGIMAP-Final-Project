@@ -23,6 +23,28 @@
 
   <section class="preview-section">
     <h2>Color Corrected Image</h2>
+    <div class="color-correction-sliders">
+      <div>
+        <label for="brightnessSlider">Brightness:</label>
+        <input type="range" id="brightnessSlider" min="-100" max="100" value="0" />
+      </div>
+      <div>
+        <label for="contrastSlider">Contrast:</label>
+        <input type="range" id="contrastSlider" min="-100" max="100" value="0" />
+      </div>
+      <div>
+        <label for="hueSlider">Hue:</label>
+        <input type="range" id="hueSlider" min="-180" max="180" value="0" />
+      </div>
+      <div>
+        <label for="saturationSlider">Saturation:</label>
+        <input type="range" id="saturationSlider" min="-100" max="100" value="0" />
+      </div>
+      <div>
+        <label for="colorSlider">Color:</label>
+        <input type="range" id="colorSlider" min="-100" max="100" value="0" />
+      </div>
+    </div>
     <img src="" id="ccPreview">
     <button id="ccButton">Download Color Corrected Image</button>
   </section>
