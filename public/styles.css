@@ -11,8 +11,8 @@ body {
 }
 
 header {
-    background-color: #333; /* Dark background color for the header */
-    color: #fff; /* Light text color for the header */
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 20px 0;
 }
@@ -29,46 +29,93 @@ h2 {
 
 button {
     display: block;
-    margin: 0 auto 20px; /* Center the buttons horizontally and add some space at the bottom */
+    margin: 0 auto 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #333; /* Dark background color for the buttons */
-    color: #fff; /* Light text color for the buttons */
+    background-color: #333;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #555; /* Darker background color on hover */
+    background-color: #555;
 }
 
 button:focus {
-    outline: none; /* Remove the default focus outline */
+    outline: none;
 }
 
-/* Styles for the image previews */
+/* image previews */
 img {
     max-width: 400px;
     display: block;
     margin: 0 auto;
-    border: 1px solid #ccc; /* Add a border to the image previews */
-    border-radius: 5px; /* Add some border radius for a rounded appearance */
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.color-correction-sliders {
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+    width: 250px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Styles for the color correction header */
+.color-correction-container {
     margin-bottom: 20px;
-  }
-  
-  .color-correction-sliders div {
+    text-align: center; /* Center the header */
+}
+
+.color-correction-sliders label {
+    display: block;
     margin-bottom: 10px;
-  }
-  
-  .color-correction-sliders label {
+    font-weight: bold;
+}
+
+.color-correction-sliders input[type="range"] {
+    width: calc(150% - 100px);
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    background-color: #ddd;
+}
+
+.color-correction-sliders input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 0; 
+    cursor: pointer;
+}
+
+#rgbSlider {
+    width: 100%;
+    background: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0)); /* Use a gradient to show color spectrum */
+}
+
+#rgbSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 0; 
+    cursor: pointer;
+}
+
+.slider-value {
     display: inline-block;
-    width: 100px;
-  }
-  
-  .color-correction-sliders input[type="range"] {
-    width: 200px;
-  }
+    width: 30px;
+    text-align: center;
+}
