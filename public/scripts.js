@@ -1,4 +1,29 @@
 $(document).ready(() => {
+    function updateSliderValue(sliderId, valueId) {
+        // slider values
+        var slider = document.getElementById(sliderId);
+        var value = document.getElementById(valueId);
+        value.textContent = slider.value;
+    }
+
+    // update values
+    updateSliderValue("contrastSlider", "contrastValue");
+    updateSliderValue("brightnessSlider", "brightnessValue");
+    updateSliderValue("saturationSlider", "saturationValue");
+
+    // update values when slider is moved
+    $("#contrastSlider").on("input", function() {
+        updateSliderValue("contrastSlider", "contrastValue");
+    });
+
+    $("#brightnessSlider").on("input", function() {
+        updateSliderValue("brightnessSlider", "brightnessValue");
+    });
+
+    $("#saturationSlider").on("input", function() {
+        updateSliderValue("saturationSlider", "saturationValue");
+    });
+
     $('#imageInput').on('change', (e) => {
         try {
             let reader = new FileReader()

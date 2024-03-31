@@ -67,14 +67,14 @@ img {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Styles for the color correction header */
+/* color correction header */
 .color-correction-container {
     margin-bottom: 20px;
-    text-align: center; /* Center the header */
+    text-align: center;
 }
 
 .color-correction-sliders label {
@@ -96,13 +96,13 @@ img {
     width: 3px;
     height: 15px;
     background-color: #333;
-    border-radius: 0; 
+    border-radius: 0;
     cursor: pointer;
 }
 
 #rgbSlider {
     width: 100%;
-    background: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0)); /* Use a gradient to show color spectrum */
+    background: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0));
 }
 
 #rgbSlider::-webkit-slider-thumb {
@@ -110,7 +110,7 @@ img {
     width: 3px;
     height: 15px;
     background-color: #333;
-    border-radius: 0; 
+    border-radius: 0;
     cursor: pointer;
 }
 
