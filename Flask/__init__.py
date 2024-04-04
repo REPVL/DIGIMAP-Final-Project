@@ -6,7 +6,11 @@ from scipy import ndimage
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-app.config["UPLOAD_FOLDER"] = "Flask/static/uploads"
+
+try:
+    app.config["UPLOAD_FOLDER"] = "Flask/static/uploads"
+except:
+    app.config["UPLOAD_FOLDER"] = "static/uploads"
 
 
 @app.route("/", methods=["GET", "POST"])
