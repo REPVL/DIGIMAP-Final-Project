@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edge Detection</title>
+    <title>5 Main Edge Detection and Automatic Color Detection</title>
     <style>
         img {
             height: 200px;
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h1>Edge Detection</h1>
+    <h1>5 Main Edge Detection and Automatic Color Detection</h1>
 
     <form action="/" method="post" enctype="multipart/form-data">
         <input type="file" name="image" required>
@@ -21,7 +21,7 @@
     </form>
 
     {% if original %}
-    <p>original</p>
+    <p>Original</p>
     <img src="{{ url_for('static', filename='uploads/'  + original) }}">
     <p>Roberts</p>
     <img src="{{ url_for('static', filename='uploads/' + roberts_edge) }}">
@@ -33,6 +33,8 @@
     <img src="{{ url_for('static', filename='uploads/' + laplacian_edge) }}">
     <p>Canny</p>
     <img src="{{ url_for('static', filename='uploads/' + canny_edge) }}">
+    <p>Color Correction</p>
+    <img src="{{ url_for('static', filename='uploads/' + color_corrected) }}">
     {% endif %}
 </body>
 

@@ -21,7 +21,7 @@ def index():
         filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
         file.save(filepath)
 
-        image = cv2.imread(filepath, 0).astype("float64") / 255.0
+        image = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE).astype("float64") / 255.0
 
         roberts_cross_v = np.array([[1, 0], [0, -1]])
         roberts_cross_h = np.array([[0, 1], [-1, 0]])
@@ -75,6 +75,23 @@ def index():
         )
         cv2.imwrite(canny_edge_filepath, (canny_edge * 255.0))
 
+        color_corrected_image = cv2.imread(filepath, cv2.IMREAD_COLOR)
+        color_corrected_lab = cv2.cvtColor(color_corrected_image, cv2.COLOR_BGR2LAB)
+        color_corrected_l, color_corrected_a, color_corrected_b = cv2.split(
+            color_corrected_lab
+        )
+        color_corrected_clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
+        color_corrected_l = color_corrected_clahe.apply(color_corrected_l)
+        color_corrected_lab = cv2.merge(
+            (color_corrected_l, color_corrected_a, color_corrected_b)
+        )
+        color_corrected = cv2.cvtColor(color_corrected_lab, cv2.COLOR_LAB2BGR)
+        color_corrected_filename = "color_corrected_" + filename
+        color_corrected_filepath = os.path.join(
+            app.config["UPLOAD_FOLDER"], color_corrected_filename
+        )
+        cv2.imwrite(color_corrected_filepath, (color_corrected))
+
         return render_template(
             "index.html",
             original=filename,
@@ -83,6 +100,7 @@ def index():
             prewitt_edge=prewitt_edge_filename,
             laplacian_edge=laplacian_edge_filename,
             canny_edge=canny_edge_filename,
+            color_corrected=color_corrected_filename,
         )
 
     return render_template("index.html")
