@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edge Detection</title>
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Edge Detection</h1>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <input type="submit" value="Upload and Detect Edges">
+    </form>
+
+    {% if original %}
+    <p>original</p>
+    <img src="{{ url_for('static', filename='uploads/'  + original) }}">
+    <p>Roberts</p>
+    <img src="{{ url_for('static', filename='uploads/' + roberts_edge) }}">
+    <p>Sobel</p>
+    <img src="{{ url_for('static', filename='uploads/' + sobel_edge) }}">
+    <p>Prewitt</p>
+    <img src="{{ url_for('static', filename='uploads/' + prewitt_edge) }}">
+    <p>Laplacian</p>
+    <img src="{{ url_for('static', filename='uploads/' + laplacian_edge) }}">
+    <p>Canny</p>
+    <img src="{{ url_for('static', filename='uploads/' + canny_edge) }}">
+    {% endif %}
+</body>
+
+</html>
