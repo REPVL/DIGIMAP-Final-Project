@@ -2,15 +2,17 @@ import cv2
 import os
 import numpy as np
 from flask import *
+from pathlib import Path
 from PIL import Image, ImageEnhance
 from scipy import ndimage
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-try:
-    app.config["UPLOAD_FOLDER"] = "Flask/static/uploads"
-except:
-    app.config["UPLOAD_FOLDER"] = "static/uploads"
+
+current_dir = Path(__file__).parent
+file_path = current_dir / 'static/uploads'
+absolute_path = file_path.resolve()
+app.config["UPLOAD_FOLDER"] = absolute_path
 
 
 @app.route("/", methods=["GET", "POST"])
