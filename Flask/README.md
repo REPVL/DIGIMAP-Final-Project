@@ -18,22 +18,22 @@ You can install them using pip: `pip install flask opencv-python numpy pillow`
 To run the web application, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Navigate to the directory where the server code is located.
-3. Run the server using the following command: `python app.py`
+2. Navigate to the directory where the web application code is located.
+3. Run the web application using the following command: `python app.py`
 
-The server will start, and you can access it by going to `http://127.0.0.1:5000/` in your web browser.
+The web application will start, and you can access it by going to `http://127.0.0.1:5000/` in your web browser.
 
 ## Using the web application
 
-To use the server:
+To use the web application:
 
 1. Open your web browser and go to `http://127.0.0.1:5000/`.
 2. Use the form to upload an image.
-3. The server will process the image and display the results, including the original image and its processed versions.
+3. The web application will process the image and display the results, including the original image and its processed versions.
 
 ## Features
 
-The server applies the following image processing algorithms:
+The web application applies the following image processing algorithms:
 
 - Roberts Cross Edge Detection
 - Sobel Edge Detection
