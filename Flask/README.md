@@ -1,6 +1,6 @@
 # FINAL PROJECT (EDGE DETECTION / COLOR CORRECTION)
 
-This server is built with Flask and uses OpenCV for image processing. It allows users to upload images and apply different edge detection and color correction algorithms.
+This server is built with Flask. It allows users to upload images and apply different edge detection and color correction algorithms.
 
 ## Prerequisites
 
