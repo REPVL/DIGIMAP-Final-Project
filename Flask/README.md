@@ -22,9 +22,7 @@ To run the server, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Navigate to the directory where the server code is located.
-3. Run the server using the following command:
-
-python app.py
+3. Run the server using the following command: ```python app.py```
 
 The server will start, and you can access it by going to `http://127.0.0.1:5000/` in your web browser.
 
