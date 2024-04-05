@@ -4,7 +4,7 @@ This web application is built with Flask. It allows users to upload images and a
 
 ## Prerequisites
 
-Before running the server, you need to have the following installed:
+Before running the web application, you need to have the following installed:
 - Python 3
 - Flask
 - OpenCV
@@ -13,9 +13,9 @@ Before running the server, you need to have the following installed:
 
 You can install them using pip: `pip install flask opencv-python numpy pillow`
 
-## Running the Server
+## Running the web application
 
-To run the server, follow these steps:
+To run the web application, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Navigate to the directory where the server code is located.
@@ -23,7 +23,7 @@ To run the server, follow these steps:
 
 The server will start, and you can access it by going to `http://127.0.0.1:5000/` in your web browser.
 
-## Using the Server
+## Using the web application
 
 To use the server:
 
