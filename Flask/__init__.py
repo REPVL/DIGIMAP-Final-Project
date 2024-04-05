@@ -2,11 +2,11 @@ import cv2
 import os
 import numpy as np
 from flask import *
+from PIL import Image, ImageEnhance
 from scipy import ndimage
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-
 try:
     app.config["UPLOAD_FOLDER"] = "Flask/static/uploads"
 except:
@@ -92,6 +92,25 @@ def index():
         )
         cv2.imwrite(color_corrected_filepath, (color_corrected))
 
+        corrected_color_image = Image.open(filepath)
+        corrected_color_brightness = float(request.form.get("brightness", 1))
+        corrected_color_contrast = float(request.form.get("contrast", 1))
+        corrected_color_saturation = float(request.form.get("saturation", 1))
+        corrected_color_image = ImageEnhance.Brightness(corrected_color_image).enhance(
+            corrected_color_brightness
+        )
+        corrected_color_image = ImageEnhance.Contrast(corrected_color_image).enhance(
+            corrected_color_contrast
+        )
+        corrected_color_image = ImageEnhance.Color(corrected_color_image).enhance(
+            corrected_color_saturation
+        )
+        corrected_color_filename = "corrected_color_" + filename
+        corrected_color_filepath = os.path.join(
+            app.config["UPLOAD_FOLDER"], corrected_color_filename
+        )
+        corrected_color_image.save(corrected_color_filepath)
+
         return render_template(
             "index.html",
             original=filename,
@@ -101,6 +120,7 @@ def index():
             laplacian_edge=laplacian_edge_filename,
             canny_edge=canny_edge_filename,
             color_corrected=color_corrected_filename,
+            corrected_color=corrected_color_filename,
         )
 
     return render_template("index.html")
