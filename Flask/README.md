@@ -11,10 +11,7 @@ Before running the server, you need to have the following installed:
 - NumPy
 - Pillow
 
-You can install them using pip:
-
-pip install flask opencv-python numpy pillow
-
+You can install them using pip: `pip install flask opencv-python numpy pillow`
 
 ## Running the Server
 
@@ -22,7 +19,7 @@ To run the server, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Navigate to the directory where the server code is located.
-3. Run the server using the following command: ```python app.py```
+3. Run the server using the following command: `python app.py`
 
 The server will start, and you can access it by going to `http://127.0.0.1:5000/` in your web browser.
 
