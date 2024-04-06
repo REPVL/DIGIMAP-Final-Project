@@ -3,58 +3,99 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>5 Main Edge Detection and Automatic Color Detection</title>
-    <style>
-        img {
-            height: 200px;
-            width: 200px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGIMAP Final Project</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="shortcut icon" href="static/icon.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <h1>5 Main Edge Detection and Automatic Color Detection</h1>
+    <header>
+        <h1>DIGIMAP Final Project</h1>
+    </header>
 
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" required>
+    <div class="sidebar">
+        <div class="color-correction">
+            <h2>Processing Panel</h2>
 
-        <label for="contrast">Contrast</label>
-        <input type="range" name="contrast" min="0" max="2" step="0.1" value="1" id="contrast">
-        <span id="contrastValue">1</span>
+            <form class="input" action="/" method="post" enctype="multipart/form-data">
+                <input id="file_input" type="file" name="image" required>
 
-        <label for="brightness">Brightness</label>
-        <input type="range" name="brightness" min="0" max="2" step="0.1" value="1" id="brightness">
-        <span id="brightnessValue">1</span>
+                <label for="contrast">Contrast</label>
+                <input type="range" class="slider" name="contrast" min="-1" max="1" step="0.01" value="0">
+                <span class="slider-value">0</span>
 
-        <label for="saturation">Saturation</label>
-        <input type="range" name="saturation" min="0" max="2" step="0.1" value="1" id="saturation">
-        <span id="saturationValue">1</span>
+                <label for="brightness">Brightness</label>
+                <input type="range" class="slider" name="brightness" min="-1" max="1" step="0.01" value="0">
+                <span class="slider-value">0</span>
 
-        <input type="submit" value="Submit">
-    </form>
+                <label for="saturation">Saturation</label>
+                <input type="range" class="slider" name="saturation" min="-1" max="1" step="0.01" value="0">
+                <span class="slider-value">0</span>
+                
+                <br>
+                <input type="submit" value="Upload">
+            </form>
+        </div>
+    </div>
 
-    {% if original %}
-    <img src="{{ url_for('static', filename='uploads/'  + original) }}">
-    <img src="{{ url_for('static', filename='uploads/' + roberts_edge) }}">
-    <img src="{{ url_for('static', filename='uploads/' + sobel_edge) }}">
-    <img src="{{ url_for('static', filename='uploads/' + prewitt_edge) }}">
-    <img src="{{ url_for('static', filename='uploads/' + laplacian_edge) }}">
-    <img src="{{ url_for('static', filename='uploads/' + canny_edge) }}">
-    <img src="{{ url_for('static', filename='uploads/' + color_corrected) }}">
-    <img src="{{ url_for('static', filename='uploads/' + corrected_color) }}">
+    {% if not original %}
+    <section class="preview-section">
+        <h2>Original Image</h2>
+        <img src="static/input.png" id="image_preview">
+    </section>
+
+    {% elif original %}
+    <section class="preview-section">
+        <h2>Original Image</h2>
+        <img src="{{ url_for('static', filename='uploads/' + original) }}" id="image_preview">
+    </section>
+
+    <section class="preview-section">
+        <h2>Roberts Edge Detection</h2>
+        <img src="{{ url_for('static', filename='uploads/' + roberts_edge) }}" class="processed-image">
+        <button class="processed-button">Download Roberts Edge Detection Image</button>
+    </section>
+
+    <section class="preview-section">
+        <h2>Sobel Edge Detection</h2>
+        <img src="{{ url_for('static', filename='uploads/' + sobel_edge) }}" class="processed-image">
+        <button class="processed-button">Download Sobel Edge Detection Image</button>
+    </section>
+
+    <section class="preview-section">
+        <h2>Prewitt Edge Detection</h2>
+        <img src="{{ url_for('static', filename='uploads/' + prewitt_edge) }}" class="processed-image">
+        <button class="processed-button">Download Prewitt Edge Detection Image</button>
+    </section>
+
+    <section class="preview-section">
+        <h2>Laplacian Edge Detection</h2>
+        <img src="{{ url_for('static', filename='uploads/' + laplacian_edge) }}" class="processed-image">
+        <button class="processed-button">Download Laplacian Edge Detection Image</button>
+    </section>
+
+    <section class="preview-section">
+        <h2>Canny Edge Detection</h2>
+        <img src="{{ url_for('static', filename='uploads/' + canny_edge) }}" class="processed-image">
+        <button class="processed-button">Download Canny Edge Detection Image</button>
+    </section>
+
+    <section class="preview-section">
+        <h2>Automatic Color Correction</h2>
+        <img src="{{ url_for('static', filename='uploads/' + color_corrected) }}" class="processed-image">
+        <button class="processed-button">Download Automatic Color Correction Image</button>
+    </section>
+
+    <section class="preview-section">
+        <h2>User Color Correction</h2>
+        <img src="{{ url_for('static', filename='uploads/' + corrected_color) }}" class="processed-image">
+        <button class="processed-button">Download User Color Correction Image</button>
+    </section>
     {% endif %}
 
-    <script>
-        document.getElementById('contrast').oninput = function () {
-            document.getElementById('contrastValue').innerHTML = this.value;
-        }
-        document.getElementById('brightness').oninput = function () {
-            document.getElementById('brightnessValue').innerHTML = this.value;
-        }
-        document.getElementById('saturation').oninput = function () {
-            document.getElementById('saturationValue').innerHTML = this.value;
-        }
-    </script>
+    <script src="static/scripts.js"></script>
 </body>
 
 </html>

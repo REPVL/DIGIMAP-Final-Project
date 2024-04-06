@@ -99,13 +99,13 @@ def index():
         corrected_color_contrast = float(request.form.get("contrast", 1))
         corrected_color_saturation = float(request.form.get("saturation", 1))
         corrected_color_image = ImageEnhance.Brightness(corrected_color_image).enhance(
-            corrected_color_brightness
+            corrected_color_brightness + 1
         )
         corrected_color_image = ImageEnhance.Contrast(corrected_color_image).enhance(
-            corrected_color_contrast
+            corrected_color_contrast + 1
         )
         corrected_color_image = ImageEnhance.Color(corrected_color_image).enhance(
-            corrected_color_saturation
+            corrected_color_saturation + 1
         )
         corrected_color_filename = "corrected_color_" + filename
         corrected_color_filepath = os.path.join(
